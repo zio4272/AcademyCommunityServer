@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.cgb.mappers.AcademyMapper">
+
+	<insert id="signup_user" parameterType="hashmap">
+		INSERT INTO users
+		(loginId, loginPw, userName, userGender, userPhoneNum, userProfileImg,
+		userMyInfo, lectureId, userIsTeacher)
+		VALUES (#{login_id}, #{login_pw},
+		#{user_name},#{user_gender}, #{user_phonenum}, #{user_profileimg},
+		#{user_myinfo}, #{lecture_id},#{user_isteacher})
+	</insert>
+
+	<select id="user_login" parameterType="hashmap" resultType="kr.co.cgb.dao.UserDao">
+		SELECT * FROM users WHERE loginId = #{login_id} AND loginPw =
+		#{login_pw}
+	</select>
+
+	<select id="user_id_check" parameterType="hashmap" resultType="kr.co.cgb.dao.UserDao">
+		SELECT * FROM users WHERE loginId = #{login_id};
+	</select>
+
+	<insert id="write_post" parameterType="hashmap">
+		INSERT INTO post
+		(postContent, postDate, postWriter) VALUES (#{post_content}, NOW(),
+		#{post_writer})
+	</insert>
+
+	<select id="get_post" parameterType="hashmap" resultType="hashmap">
+		SELECT
+		* FROM post JOIN users ON post.postWriter = users.id;
+	</select>
+
+	<select id="get_lecutre" parameterType="hashmap" resultType="hashmap">
+		SELECT * FROM lecture JOIN userListenLecture ON lecture.id = userListenLecture.lectureId;
+	</select>
+
+
+</mapper>
