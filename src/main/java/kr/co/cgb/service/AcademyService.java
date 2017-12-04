@@ -18,6 +18,6 @@ public interface AcademyService {
 
 	public List<Map<String, Object>> getPost(Map<String, Object> map);
 
-	public Map<String, Object> getLecture(Map<String, Object> map);
+	public List<Map<String, Object>> getLecture(Map<String, Object> map);
 
 }

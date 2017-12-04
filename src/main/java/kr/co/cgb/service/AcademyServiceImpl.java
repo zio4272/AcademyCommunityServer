@@ -58,7 +58,7 @@ public class AcademyServiceImpl implements AcademyService {
 	}
 
 	@Override
-	public Map<String, Object> getLecture(Map<String, Object> map) {
+	public List<Map<String, Object>> getLecture(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return mMapper.get_lecture(map);
 	}

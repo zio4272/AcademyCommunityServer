@@ -34,7 +34,7 @@
 		* FROM post JOIN users ON post.postWriter = users.id;
 	</select>
 
-	<select id="get_lecutre" parameterType="hashmap" resultType="hashmap">
+	<select id="get_lecture" parameterType="hashmap" resultType="hashmap">
 		SELECT * FROM lecture JOIN userListenLecture ON lecture.id = userListenLecture.lectureId;
 	</select>
 

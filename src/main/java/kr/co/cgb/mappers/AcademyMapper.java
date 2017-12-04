@@ -17,5 +17,5 @@ public interface AcademyMapper {
 
 	public List<Map<String, Object>> get_post(Map<String, Object> map);
 
-	public Map<String, Object> get_lecture(Map<String, Object> map);
+	public List<Map<String, Object>> get_lecture(Map<String, Object> map);
 }
